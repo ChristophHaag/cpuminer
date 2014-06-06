@@ -74,9 +74,14 @@ typedef struct {
   __CPU_BITTYPE  __bits[ CPU_SETSIZE / __CPU_BITS ];
 } cpu_set_t;
 
-extern int sched_setaffinity(pid_t pid, size_t setsize, const cpu_set_t* set);
-
-extern int sched_getaffinity(pid_t pid, size_t setsize, cpu_set_t* set);
+//extern int sched_setaffinity(pid_t pid, size_t setsize, const cpu_set_t* set);
+static int sched_setaffinity(pid_t pid, size_t len, cpu_set_t const * cpusetp) {
+        return  0;
+}
+//extern int sched_getaffinity(pid_t pid, size_t setsize, cpu_set_t* set);
+static int sched_getaffinity(pid_t pid, size_t len, cpu_set_t const * cpusetp) {
+        return  0;
+}
 
 #define CPU_ZERO(set)          CPU_ZERO_S(sizeof(cpu_set_t), set)
 #define CPU_SET(cpu, set)      CPU_SET_S(cpu, sizeof(cpu_set_t), set)
